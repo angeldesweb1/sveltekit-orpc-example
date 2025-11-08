@@ -1,7 +1,7 @@
 import { error, json, type RequestHandler } from '@sveltejs/kit';
 import { RPCHandler } from '@orpc/server/fetch';
 import { onError } from '@orpc/server';
-import { router } from '$lib/orpc/router';
+import { router } from '$lib/client/orpc';
 
 const handler = new RPCHandler(router, {
 	interceptors: [
@@ -12,15 +12,11 @@ const handler = new RPCHandler(router, {
 	]
 });
 
-const handle: RequestHandler = async ({ request, url }) => {
-	const requrl = url.pathname;
-	console.log({ requrl });
-	const { matched, response } = await handler.handle(request, {
+const handle: RequestHandler = async ({ request }) => {
+	const { response } = await handler.handle(request, {
 		prefix: '/api/rpc',
 		context: {} // Provide initial context if needed
 	});
-
-	console.log({ matched });
 
 	return response ?? json({ message: 'not found' });
 };

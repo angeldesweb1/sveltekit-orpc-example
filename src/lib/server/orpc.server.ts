@@ -2,7 +2,7 @@ import type { RouterClient } from '@orpc/server';
 import { createORPCClient } from '@orpc/client';
 import { RPCLink } from '@orpc/client/fetch';
 import { getRequestEvent } from '$app/server';
-import type { router } from '../orpc/router';
+import type { router } from '$lib/client/orpc';
 
 const link = new RPCLink({
 	url: () => {
