@@ -2,7 +2,7 @@ import { os } from '@orpc/server';
 import { z } from 'zod';
 import { users } from './dummy.data';
 
-const userSchema = z.object({
+export const userSchema = z.object({
 	id: z.number().int().min(1),
 	name: z.string(),
 	description: z.string().optional()
