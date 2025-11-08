@@ -1,5 +1,5 @@
 {
-	"name": "admin",
+	"name": "kit-orpc",
 	"version": "0.0.1",
 	"devDependencies": {
 		"@commitlint/cli": "^20.1.0",
